@@ -10,6 +10,10 @@ Proceed as follows
 sh scripts/download_data.sh
 
 ## 1. Fetch Reddit texts
+The file data/raw_data/ids.txt contains onlz message ids but not the messages. Get the message texts yourself, the text to be taken is 'selftext' + 'body' + 'title' from api's json. You can either crawl only the post ids we used using the Reddit API, or you can obtain all the reddit data from another source, such as https://files.pushshift.io/reddit/
+
+A Hadoop script for automatically extracting the needed messages and cleaning them is available in scripts/hadoop/. It expects to find reddit_comments and reddit_submission is in the user's hadoop home directory. Then run
+
 sh scripts/hadoop/run.sh
 
 ## 2. Create datasets
